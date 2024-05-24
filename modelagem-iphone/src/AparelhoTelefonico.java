@@ -1,13 +1,11 @@
-public class AparelhoTelefonico {
-    public void ligar(String numero){
-        System.out.println("Você ligou para o número: "+numero);
-    }
+/**
+ * AparelhoTelefonico
+ */
+public interface AparelhoTelefonico {
 
-    public void atender(){
-        System.out.println("Alou?");
-    }
+    public void ligar(String numero);
 
-    public void iniciarCorreioVoz(){
-        System.out.println("Correio de voz iniciado.");
-    }
+    public void atender();
+    
+    public void iniciarCorreioVoz();
 }

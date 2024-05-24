@@ -1,15 +1,12 @@
-public class ReprodutorMusical {
-    public void tocar(){
-        System.out.println("Tocando!");
-    }
+/**
+ * ReprodutorMusical
+ */
+public interface ReprodutorMusical {
 
-    public void pausar(){
-        System.out.println("Pausado!");
-    }
+    public void tocar();
 
-    public void selecionarMusica(String musica){
-        System.out.println("Você selecionou a musica: "+ musica);
-    }
+    public void pausar();
 
+    public void selecionarMusica(String musica);
 
 }
