@@ -6,21 +6,30 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import dio.web.api.model.Usuario;
+import dio.web.api.handler.BusinessException;
 
 @Repository
 public class UsuarioRepository {
    public void save(Usuario usuario){
+        //gera uma exception customizada que será interceptada pelo handler.
+        if(usuario.getLogin() == null)
+            throw new BusinessException("O campo login é obrigatório.");
+        
+
         System.out.println("SAVE - Recebendo o usuário na camada de repositório");
         System.out.println(usuario);
     }
+
     public void update(Usuario usuario){
         System.out.println("UPDATE - Recebendo o usuário na camada de repositório");
         System.out.println(usuario);
     }
+
     public void deleteById(Integer id){
         System.out.println(String.format("DELETE/id - Recebendo o id: %d para excluir um usuário", id));
         System.out.println(id);
     }
+
     public List<Usuario> findAll(){
         System.out.println("LIST - Listando os usuários do sistema");
         List<Usuario> usuarios = new ArrayList<>();
@@ -28,6 +37,7 @@ public class UsuarioRepository {
         usuarios.add(new Usuario("frank", "masterpass"));
         return usuarios;
     }
+
     public Usuario finById(Integer id){
         System.out.println(String.format("GET/id - Recebendo o id: %d para localizar um usuário", id));
         return new Usuario("gleyson","password");
